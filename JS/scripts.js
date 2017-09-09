@@ -1,25 +1,25 @@
-var Alumno= function () {
-    var _nombre = "";
-    var _apellido = "";
-    var _dni = "";
-    var _FechaNacimiento = "";
+var Alumno= function (nombre, apellido, dni, fechaNacimiento) {
+    var _nombre = nombre;
+    var _apellido = apellido;
+    var _dni = dni;
+    var _fechaNacimiento = fechaNacimiento;
 
     
     var getEdad = function () {
         if (_edad==undefined) {
-            var edad = new Date().getFullYear() -  _FechaNacimiento.getFullYear();
+            var _edad = new Date().getFullYear() -  _fechaNacimiento.getFullYear();
         } return _edad;
     }
 
-    //calculo del proximo cumpleaños
+    
     var getProximoCumpleanio = function () {
-        var getAnioActual = new Date.getFullYear();
-        var getMesActual = new Date.getMonth();
-        var getDiaActual = new Date.getDay();
+        var getAnioActual = new Date().getFullYear();
+        var getMesActual = new Date().getMonth();
+        var getDiaActual = new Date().getDay();
 
-        var getAnioNacimiento = _FechaNacimiento.getFullYear();
-        var getMesNacimiento = _FechaNacimiento.getMonth();
-        var getDiaNacimiento = _FechaNacimiento.getDay();
+        var getAnioNacimiento = _fechaNacimiento.getFullYear();
+        var getMesNacimiento = _fechaNacimiento.getMonth();
+        var getDiaNacimiento = _fechaNacimiento.getDay();
 
         if (getMesNacimiento < getMesActual) {
             var anio = getAnioActual + 1;
@@ -34,28 +34,24 @@ var Alumno= function () {
         document.getElementById("result").innerHTML = getDiaNacimiento + "/" + getMesNacimiento + "/" + getAnioNacimiento;
     }
 
+    var getfechaNacimiento = function () {
+        _fechaNacimiento=prompt("Ingresar fecha de Nacimiento");
 
+        return _fechaNacimiento;
+
+    }
 
     
-    var getFechaNacimiento = function () {
-        _FechaNacimiento=prompt("Ingresar fecha de Nacimiento");
-
-        return _FechaNacimiento;
-
-    }
-    var setFechaNacimiento = function (_fechaNac) {
-        _FechaNacimiento = new Date(_fechaNac);
-    }
 
     
     return {
         nombre: _nombre,
         apellido: _apellido,
         dni: _dni,
-        fechaNacimiento: _FechaNacimiento,
-        getEdad: getEadad,
+        fechaNacimiento: _fechaNacimiento,
+        getEdad: getEdad,
         getProximoCumpleanio: getProximoCumpleanio,
-        getFechaNacimiento: getFechaNacimiento
+        getfechaNacimiento: getfechaNacimiento
 
 
     }
@@ -67,5 +63,5 @@ var Alumno= function () {
 //para instancias y probar el objeto
 var alumno;
 function iniciar() {
-    alumno= new Alumno();
+    alumno= new Alumno("Prisca", 21212, "Diaz", '03/09/1987');
 }
