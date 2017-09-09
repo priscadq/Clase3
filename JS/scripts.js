@@ -1,8 +1,8 @@
-var Alumno= function (nombre, apellido, dni, fechaNacimiento) {
+var Alumno= function (nombre, apellido, dni) {
     var _nombre = nombre;
     var _apellido = apellido;
     var _dni = dni;
-    var _fechaNacimiento = fechaNacimiento;
+    
 
     
     var getEdad = function () {
@@ -35,12 +35,16 @@ var Alumno= function (nombre, apellido, dni, fechaNacimiento) {
     }
 
     var getfechaNacimiento = function () {
-        _fechaNacimiento=prompt("Ingresar fecha de Nacimiento");
-
+        //_fechaNacimiento=prompt("Ingresar fecha de Nacimiento");
         return _fechaNacimiento;
 
     }
 
+    
+    var setfechaNacimiento = function (_fechaNac) {
+        _fechaNacimiento = new Date(_fechaNac);
+    
+    }
     
 
     
@@ -48,10 +52,11 @@ var Alumno= function (nombre, apellido, dni, fechaNacimiento) {
         nombre: _nombre,
         apellido: _apellido,
         dni: _dni,
-        fechaNacimiento: _fechaNacimiento,
+        //fechaNacimiento: _fechaNacimiento,
         getEdad: getEdad,
         getProximoCumpleanio: getProximoCumpleanio,
-        getfechaNacimiento: getfechaNacimiento
+        getfechaNacimiento: getfechaNacimiento,
+        setfechaNacimiento: setfechaNacimiento
 
 
     }
@@ -63,5 +68,5 @@ var Alumno= function (nombre, apellido, dni, fechaNacimiento) {
 //para instancias y probar el objeto
 var alumno;
 function iniciar() {
-    alumno= new Alumno("Prisca", 21212, "Diaz", '03/09/1987');
+    alumno= new Alumno("Prisca", 21212, "Diaz");
 }
