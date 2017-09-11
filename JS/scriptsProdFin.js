@@ -49,7 +49,7 @@ function crearCliente() {
     var vector = clienteString.split(","); //crea un vector "vector" en base al string, separando posicion por coma
     var nuevoCliente = new Cliente(vector[0], vector[1], vector[5], vector[4], vector[2], vector[3]); //nuevoCliente es el vector, y usa la clase "Cliente" para deifnir las propiedades de este. 
  
-    mostrar(nuevoCliente); //se llama a la funcion "mostrar", para que imprima el vector nuevoCliente
+    mostrar(nuevoCliente); //se llama a la funcion "mostrar", para que imprima el objeto nuevoCliente
     
 
     //para crear los "PRODUCTOS" 
@@ -67,9 +67,19 @@ function crearCliente() {
     showProductos(productos); //se llama a la funcion "showProductos" para que imprimir el vector productos
 
 
+    //crear array "PRODUCTOSDELCLIENTE"
+    //el array tendra al vector Clientes y el vector Productos
+  
+    var productosDelCliente = new Array();
+    productosDelCliente[0] = nuevoCliente;
+    productosDelCliente[0][1] = productos;
+
+
 }
 
 
+
+// tengo que testear esto luego
 function crearMatriz() {
     // mi variable "registros" va a tener 3 filas
     var registros = new Arrway(3); registros = (3) [Array(2),Array(2),Array(2)]
@@ -79,6 +89,7 @@ function crearMatriz() {
 
 
 }
+
 
 
 
